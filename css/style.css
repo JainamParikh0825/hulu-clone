@@ -109,6 +109,8 @@ h4 {
   display: flex;
   justify-content: flex-end;
   padding: 20px 40px;
+  z-index: 2;
+  position: relative;
 }
 
 .header nav .login-btn {
@@ -142,6 +144,21 @@ h4 {
 .header .header-text-2 {
   font-size: 18px;
   margin: 25px 0;
+}
+.header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.76) 15.64%,
+    rgba(0, 0, 0, 0.192) 60.23%,
+    rgba(0, 0, 0, 8e-5) 100%
+  );
 }
 
 /* Sub Header */
@@ -212,6 +229,10 @@ h4 {
   text-align: left;
 }
 
+.categories .cover-text h3 {
+  font-weight: 700;
+}
+
 .categories .cover-1 {
   background: url(../img/cover-1.jpg) no-repeat center center / cover;
 }
@@ -227,7 +248,38 @@ h4 {
 .categories .cover-4 {
   background: url(../img/cover-4.jpg) no-repeat center center / cover;
 }
+
+/* Live */
+.live {
+  background: #151516;
+  padding: 40px;
+}
+
+.live-border {
+  border: 4px solid #1ce783;
+  border-radius: 16px;
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.live a {
+  text-transform: uppercase;
+  font-size: 18px;
+  margin-top: 20px;
+  text-decoration: underline;
+}
+
 /* Media Queries */
+@media (max-width: 1100px) {
+  .categories .covers {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .header .logo {
     width: 200px;
@@ -260,5 +312,26 @@ h4 {
   .sub-header > div:last-of-type {
     justify-self: center;
     align-self: center;
+  }
+
+  .text-xl {
+    line-height: 1.3;
+    font-size: 40px;
+  }
+
+  .sub-text {
+    font-size: 20px;
+  }
+
+  .categories .covers {
+    grid-template-columns: 1fr;
+  }
+
+  .live-border {
+    padding: 30px 10px;
+  }
+
+  .live-border a {
+    font-size: 16px;
   }
 }
